@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Boostrap + React Overlays.</title>
+    <script src="build/react.js"></script>
+    <script src="build/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+
+  </head>
+  <body>
+    <div id="example"></div>
+  </body>
+
+  <script type="text/babel">
+
+var BlockWrapperHolder = React.createClass({
+  render: function() {
+    return (
+      <div className="blockHolder">
+        <BlockWrapper/>
+        <BlockWrapper/>
+        <BlockWrapper/>
+        <BlockWrapper/>
+      </div>
+    );
+  }
+});
+
+var BlockWrapper = React.createClass({
+  render: function() {
+    return (
+      <div className="col-md-6 blockWrapper">
+          <div className="blockInnerWrapper">
+            <Overlay>
+            </Overlay>
+              <img src="code.jpg" width="100%"/>
+            </div>
+      </div>
+    );
+  }
+});
+
+var Overlay = React.createClass({
+  render: function() {
+    return (
+        <div className="overlay">
+            <h1> This is the overlay title</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+    );
+  }
+});
+
+ReactDOM.render(
+  <BlockWrapperHolder />,
+  document.getElementById('example')
+);
+
+  </script>
+
+
+</html>
